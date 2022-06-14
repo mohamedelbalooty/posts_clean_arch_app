@@ -12,3 +12,8 @@ class NetworkInfoImplWithConnectionChecker implements NetworkInfo {
   @override
   Future<bool> get isConnected => connectionChecker.hasConnection;
 }
+
+class NetworkInfoImplWithAnyPackage implements NetworkInfo {
+  @override
+  Future<bool> get isConnected => throw UnimplementedError();
+}
