@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:tdd_app/src/posts_feature/domain_layer/entities/post_entity.dart';
-import '../../../../core/failures.dart';
+import '../../../../core/errors/failures.dart';
+import '../entities/post_entity.dart';
 
 abstract class PostRepository{
   Future<Either<Failure,List<Post>>> getAllPosts();
