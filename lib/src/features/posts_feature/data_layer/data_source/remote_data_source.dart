@@ -23,7 +23,7 @@ class PostRemoteDataSourceImplWithHttp implements PostRemoteDataSource {
   @override
   Future<List<PostModel>> getAllPosts() async {
     final http.Response response = await http.get(
-      Uri.parse(baseUrl + 'posts'),
+      Uri.parse('$baseUrl/posts'),
       headers: {'Content-Type': 'application/json'},
     );
     if (response.statusCode == 200) {

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tdd_app/src/features/posts_feature/domain_layer/use_cases/get_posts_use_case.dart';
 import 'package:tdd_app/src/features/posts_feature/presentation_layer/bloc/posts_bloc/posts_event.dart';
@@ -17,8 +18,7 @@ class PostsBloc extends Bloc<PostsEvent, PostsStates> {
         result.fold((left) {
           emit(
             PostsErrorState(
-              message: failuresHandling.onHandlingFailures(failure: left),
-            ),
+                message: failuresHandling.onHandlingFailures(failure: left)),
           );
         }, (right) {
           emit(PostsLoadedState(posts: right));
@@ -26,4 +26,6 @@ class PostsBloc extends Bloc<PostsEvent, PostsStates> {
       }
     });
   }
+
+  static get(BuildContext context) => BlocProvider.of<PostsBloc>(context);
 }

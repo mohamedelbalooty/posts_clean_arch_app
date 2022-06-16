@@ -1,3 +1,3 @@
-const String postCreatedSuccessfully = 'Post created successfully';
-const String postUpdatedSuccessfully = 'Post updated successfully';
-const String postDeletedSuccessfully = 'Post deleted successfully';
+const String postCreatedSuccessfullyMessage = 'Post created successfully';
+const String postUpdatedSuccessfullyMessage = 'Post updated successfully';
+const String postDeletedSuccessfullyMessage = 'Post deleted successfully';

@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tdd_app/src/features/posts_feature/domain_layer/use_cases/create_post_use_case.dart';
 import 'package:tdd_app/src/features/posts_feature/domain_layer/use_cases/delete_post_use_case.dart';
@@ -24,16 +25,16 @@ class PostBloc extends Bloc<PostEvent, PostState> {
     on<PostEvent>((PostEvent event, Emitter emit) async {
       if (event is CreatePostEvent) {
         emit(PostLoadingState());
-        final result = await createPost(event.post);
-        emit(_handlingEitherResult(result, postCreatedSuccessfully));
+        final Either<Failure, Unit> result = await createPost(event.post);
+        emit(_handlingEitherResult(result, postCreatedSuccessfullyMessage));
       } else if (event is UpdatePostEvent) {
         emit(PostLoadingState());
-        final result = await updatePost(event.post);
-        emit(_handlingEitherResult(result, postUpdatedSuccessfully));
+        final Either<Failure, Unit> result = await updatePost(event.post);
+        emit(_handlingEitherResult(result, postUpdatedSuccessfullyMessage));
       } else if (event is DeletePostEvent) {
         emit(PostLoadingState());
-        final result = await deletePost(event.postId);
-        emit(_handlingEitherResult(result, postDeletedSuccessfully));
+        final Either<Failure, Unit> result = await deletePost(event.postId);
+        emit(_handlingEitherResult(result, postDeletedSuccessfullyMessage));
       }
     });
   }
@@ -47,4 +48,7 @@ class PostBloc extends Bloc<PostEvent, PostState> {
       return PostSuccessState(message: message);
     });
   }
+
+  static PostBloc get(BuildContext context) =>
+      BlocProvider.of<PostBloc>(context);
 }

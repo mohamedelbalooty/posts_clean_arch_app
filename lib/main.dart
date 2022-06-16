@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'injection_container.dart' as di;
 import 'src/features/posts_feature/presentation_layer/bloc/post_bloc/post_bloc.dart';
 import 'src/features/posts_feature/presentation_layer/bloc/posts_bloc/posts_bloc.dart';
-import 'src/features/posts_feature/presentation_layer/pages/home_page.dart';
+import 'src/features/posts_feature/presentation_layer/pages/posts_page.dart';
+import 'src/utils/theme/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,9 +22,10 @@ class CleanArchApp extends StatelessWidget {
         BlocProvider(create: (_) => di.sl<PostsBloc>()),
         BlocProvider(create: (_) => di.sl<PostBloc>()),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        theme: AppTheme().appTheme,
+        home: const PostsPage(),
       ),
     );
   }

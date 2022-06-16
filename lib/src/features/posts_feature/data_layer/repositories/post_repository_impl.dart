@@ -44,14 +44,14 @@ class PostRepositoryImpl extends PostRepository {
   Future<Either<Failure, Unit>> createPost(Post post) async {
     PostModel postModel =
         PostModel(id: post.id, title: post.title, body: post.body);
-    return await _futureOrganizeFunction(() {
+    return await _organizeFutureFunction(() {
       return remoteDataSource.createPost(postModel);
     });
   }
 
   @override
   Future<Either<Failure, Unit>> deletePost(int id) async {
-    return await _futureOrganizeFunction(() {
+    return await _organizeFutureFunction(() {
       return remoteDataSource.delete(id);
     });
   }
@@ -59,13 +59,13 @@ class PostRepositoryImpl extends PostRepository {
   @override
   Future<Either<Failure, Unit>> updatePost(Post post) async {
     PostModel postModel =
-        PostModel(id: post.id, title: post.title, body: post.body);
-    return await _futureOrganizeFunction(() {
+        PostModel(id: post.id!, title: post.title, body: post.body);
+    return await _organizeFutureFunction(() {
       return remoteDataSource.updatePost(postModel);
     });
   }
 
-  Future<Either<Failure, Unit>> _futureOrganizeFunction(
+  Future<Either<Failure, Unit>> _organizeFutureFunction(
       DeleteOrUpdateOrCreate deleteOrUpdateOrCreatePost) async {
     if (await networkInfo.isConnected) {
       try {
