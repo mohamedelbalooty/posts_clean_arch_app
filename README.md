@@ -1,16 +1,19 @@
-# tdd_app
+# Posts Clean Arch App
 
-A new Flutter project.
+## Posts app is built with clean architecture pattern with Bloc state management.
+## I made CRUD functions you can do it with http methods.
+## I took care of SOLID principles and Clean code principles.
 
-## Getting Started
+-----------------------------------------------------------------------------
 
-This project is a starting point for a Flutter application.
+## 📸 Clean Architecture Pattern Series
+![Preview](screens/clean_arch_life_cycle.png)
 
-A few resources to get you started if this is your first Flutter project:
+-----------------------------------------------------------------------------
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📸 App Design :
+![Preview](screens/1.jpg)
+![Preview](screens/2.jpg)
+![Preview](screens/3.jpg)
+![Preview](screens/4.jpg)
+-----------------------------------------------------------------------------
